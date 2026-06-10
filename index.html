@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Brown | Controls & Automation Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            border-color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3b82f6;
+            color: #f1f5f9;
+        }
+
+        /* About Section */
+        .about-text {
+            background: rgba(15, 23, 42, 0.5);
+            border-left: 4px solid #60a5fa;
+            padding: 25px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        /* Projects */
+        .project {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .project h3 {
+            font-size: 1.75rem;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project > p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 12px 18px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            color: #60a5fa;
+            font-family: 'Fira Code', monospace;
+            border-left: 3px solid #60a5fa;
+        }
+
+        .tech-stack strong {
+            color: #f1f5f9;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        ul li:before {
+            content: "\25b8";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .results {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+            padding: 20px;
+            border-left: 4px solid #22c55e;
+            margin-top: 20px;
+            border-radius: 6px;
+            color: #86efac;
+        }
+
+        .results strong {
+            color: #22c55e;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
+            transform: scale(1.02);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .pdf-viewer {
+            margin-top: 25px;
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .pdf-header h5 {
+            margin: 0;
+            color: #60a5fa;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .pdf-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #60a5fa;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-download:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            border-color: #60a5fa;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #0f172a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            max-width: 90%;
+            max-height: 90vh;
+            overflow: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #60a5fa;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #f1f5f9;
+        }
+
+        .modal-caption {
+            text-align: center;
+            margin-top: 15px;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .project {
+                padding: 25px;
+            }
+
+            .project h3 {
+                font-size: 1.3rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 40px 0 30px;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 95vh;
+                padding: 15px;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 10px;
+                font-size: 2rem;
+            }
+
+            .pdf-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Andrew Brown</h1>
+    <p class="subtitle">Controls Engineer • Automation Engineer • Industrial Software Developer</p>
+
+    <div class="contact-links">
+        <a href="mailto:ajbrown95@gmail.com">📧 Email</a>
+        <a href="https://www.linkedin.com/in/andrew-brown-0200621aa/">💼 LinkedIn</a>
+    </div>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p class="about-text">
+        I design and implement industrial automation systems from concept through commissioning. My expertise spans PLC programming, SCADA/HMI development, industrial networking, database architecture, controls system design, integration, and manufacturing process improvements. I've led cross-functional initiatives to modernize legacy systems and improve operational efficiency.
+    </p>
+</section>
+
+<section>
+    <h2>Selected Projects</h2>
+
+    <!-- PROJECT 1 -->
+    <div class="project">
+        <h3>Packaging Line Controls System</h3>
+
+        <p>
+            Served as lead engineer and primary technical owner for the modernization of an existing packaging line, independently defining project scope, technical requirements, and system architecture. Successfully delivered a comprehensive modern controls solution that improved maintainability and production efficiency.
+        </p>
+
+        <div class="tech-stack">
+            <strong>Technologies:</strong> Mitsubishi GX Works3 • Ignition Perspective • OPC UA • SQL • Ethernet/IP • Industrial Networking
+        </div>
+
+        <h4>Key Responsibilities</h4>
+        <ul>
+            <li>Designed controls architecture including PLC, HMI, networking, and system integration</li>
+            <li>Assisted in defining project scope, requirements, and implementation strategy</li>
+            <li>Developed all PLC, HMI, SCADA, and database integration software</li>
+            <li>Designed and developed a custom Ignition-based label printing application</li>
+            <li>Integrated the packaging line with plant-wide labeling database and production systems</li>
+            <li>Coordinated implementation activities across Production, Maintenance, IT, Management, and Vendors</li>
+            <li>Led commissioning, testing, troubleshooting, and production startup activities</li>
+            <li>Created comprehensive technical documentation and maintenance resources</li>
+        </ul>
+
+        <div class="results">
+            <strong>✓ Results:</strong> Improved visibility into downtime causes, simplified maintenance reporting workflows, and increased overall production line reliability.
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/Controls_Architecture.png" alt="Controls Architecture Slide">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/HMI-1_Home.png" alt="HMI Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/Label_GUI.png" alt="Print Application Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/Perspective_Views.png" alt="Perspective Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/PLC_Snippet.png" alt="Perspective Sample">
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project">
+        <h3>Powder Coating Panel Build and Installation</h3>
+
+        <p>
+            Designed, built, and installed an electrical panel and controls system for a large conveyor driven powder coating line.
+        </p>
+
+        <div class="tech-stack">
+            <strong>Technologies:</strong> AutoCAD Electrical • Mitsubishi GX Works3 • GT Designer3 • UL 508a 
+        </div>
+
+        <h4>Key Responsibilities</h4>
+        <ul>
+            <li>Design and validation of circuits.</li>
+            <li>Safety circuit design and safety controller configuration.</li>
+            <li>PLC and HMI programming.</li>
+            <li>Panel assembly and testing.</li>
+            <li>Coordinating with production, management, and maintenance to minimize downtime during installation.</li>
+        </ul>
+
+        <div class="results">
+            <strong>✓ Results:</strong> New standard design for powder coating lines. Improved operation and maintainability. Updated controls for easy integration with SCADA/MES.
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/9300_HMI_Home.png" alt="PLC Tool Screenshot">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/9300/9300_Panel_Layout_Snippet.png" alt="CSV Output Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/9300/9300_Schematic_Snippet.png" alt="CSV Output Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/9300/9300_Schematic_Snippet2.png" alt="CSV Output Sample">
+            </div>
+            <div class="gallery-item" onclick="openModal(this.querySelector('img'))">
+                <img src="images/9300/9300_Schematic_Snippet3.png" alt="CSV Output Sample">
+            </div>
+        </div>
+
+        <h4>Documentation</h4>
+        <div class="pdf-viewer">
+            <div class="pdf-header">
+                <h5>📄 9300 Panel Rebuild</h5>
+                <a href="9300 Panel Rebuild.pdf" download class="pdf-download">
+                    ⬇️ Download PDF
+                </a>
+            </div>
+            <iframe src="9300 Panel Rebuild.pdf"></iframe>
+        </div>
+    </div>
+    
+</section>
+
+<footer>
+    <p> 2026 Andrew Brown • Controls & Automation Engineer</p>
+</footer>
+
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <img id="modalImage" class="modal-img" src="" alt="">
+        <p class="modal-caption" id="modalCaption"></p>
+    </div>
+</div>
+
+<script>
+    function openModal(imgElement) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        
+        modalImg.src = imgElement.src;
+        modalCaption.textContent = imgElement.alt;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
